@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    var arr = ["1", "2", "1", "2", "33","5","5", "1", "4"]
+
+    // function unique (arr) {
+    //   return new Set (arr)
+    // }
+    // console.log(unique (arr));
+
+    function unique(arr) {
+      var array = arr;
+      var len = array.length;
+
+      array.sort(function (a, b) {
+        return a - b
+      })
+
+      function loop (index) {
+        if (index >= 1) {
+          if(array[index]===array[index - 1]){
+            array.splice(index, 1);
+          }
+          loop(index - 1);
+        }
+      }
+      loop(len - 1);
+      return array
+    }
+
+    console.log(unique(arr));
+
+  </script>
+
+
+</body>
+
+</html>
