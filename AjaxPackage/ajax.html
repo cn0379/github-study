@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AjaxPackage</title>
+</head>
+
+<body>
+
+  <script>
+    function ajax(options) {
+
+      defaluts = {
+        success: function (data) {
+          console.log(data);
+        },
+        error: function (data) {
+
+        },
+        data: {
+
+        },
+        header: {
+          "contentType": "application/x-www-form-urlencoded",
+        },
+      }
+
+      Object.assign(defaluts, options)
+
+      var xhr = new XMLHttpRequest();
+      var params = ""
+      for (var attr in defaluts.data) {
+        params += attr + "=" + defaluts.data[attr] + "&"
+      }
+      params = params.substr(0, params.length - 1);
+      if (defaluts.type == "get") {
+        defaluts.url = defaluts.url + "?" + params;
+      }
+      xhr.open(defaluts.type, defaluts.url);
+      if (defaluts.type === "post") {
+        var contentType = defaluts.header["Content-Type"]
+        xhr.setRequestHeader("Content-Type", contentType);
+        if (contentType = "application/json") {
+          xhr.send(JSON.stringify(defaluts.data))
+        } else {
+          xhr.send(params)
+        }
+      } else {
+        xhr.send();
+      }
+      xhr.onload = function () {
+        var contentType = xhr.getResponseHeader("Content-Type");
+        if (contentType.includes("application/json")) {
+          var responseText = JSON.parse(xhr.responseText);
+        }
+        if (xhr.status == 200) {
+          defaluts.success(responseText);
+        } else {
+          defaluts.error(responseText, xhr);
+        }
+      }
+    }
+
+    ajax({
+      type: "get",
+      url: "https://autumnfish.cn/api/joke/list/",
+      data: {
+        num: 4
+      },
+    })
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
