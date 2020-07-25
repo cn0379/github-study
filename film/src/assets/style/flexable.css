@@ -1,0 +1,85 @@
+.fx{
+	display: flex;
+}
+.fa-c{
+	display: flex;
+	align-items: center;
+}
+.fa-e{
+	display: flex;
+	align-items: flex-end;
+}
+.fa-s{
+	display: flex;
+	align-items: flex-start;
+}
+.fj-a{
+	display: flex;
+	justify-content: space-around;
+}
+.fj-b{
+	display: flex;
+	justify-content: space-between;
+}
+.fj-c{
+	display: flex;
+	justify-content: center;
+}
+.fc{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.fc-a{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.fc-b{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.fc-e{
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+.fd{
+	display: flex;
+	flex-direction: column;
+}
+.fd-a{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.fd-c{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.fd-j{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.fd-ja{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+.fd-jb{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.one-line {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
