@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>debounce</title>
+
+</head>
+
+<style>
+  .box {
+    margin: 0 auto;
+    width: 500px;
+    height: 100px;
+    background-color: brown;
+    text-align: center;
+    line-height: 100px;
+    font-size: 25px;
+  }
+</style>
+
+<div class="box">
+</div>
+
+<body>
+
+  <script>
+    // 防抖函数的封装立即执行版本
+    let count = 0;
+    var box = document.querySelector(".box");
+    box.onmousemove = debounce(function () {
+      box.innerText = count++;
+    }, 1000)
+
+    function debounce(func, wait) {
+      var timer = null;
+      return function () {
+        if (timer) {
+          clearTimeout(timer);
+        } else {
+          func()
+        }
+        timer = setTimeout(function () {
+          timer = null;
+        }, wait)
+      }
+    }
+
+     // 非立即执行版本
+     var count = 0;
+        var box = document.querySelector(".box");
+        box.onmousemove = debounce(function () {
+            box.innerText = count++
+        }, 1000)
+        function debounce(func, wait) {
+            var timer = null;
+            return function () {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(function () {
+                    func()
+                    timer = null;
+                }, wait)
+            }
+        }
+
+  </script>
+
+</body>
+
+</html>

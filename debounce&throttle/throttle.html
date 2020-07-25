@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>throttle</title>
+
+</head>
+
+<style>
+  .box {
+    margin: 0 auto;
+    width: 500px;
+    height: 100px;
+    background-color: brown;
+    text-align: center;
+    line-height: 100px;
+    font-size: 25px;
+  }
+</style>
+
+<div class="box">
+</div>
+
+<body>
+
+  <script>
+    var count = 0;
+    var box = document.querySelector(".box");
+    box.onmousemove = throttle(function () {
+      box.innerText = count++;
+    }, 3000)
+    // function throttle(func, wait) {
+    //     var timer = null;
+
+    //     return function () {
+    //         if (timer) {
+
+    //         } else {
+    //             timer = setTimeout(function () {
+    //                 func();
+    //                 timer = null;
+    //             }, wait)
+    //         }
+    //     }
+    // }
+
+    // 立即执行版封装
+    function throttle(func, wait) {
+
+        var timer = null;
+
+        return function () {
+            if (timer) {
+            } else {
+                func()
+                timer = setTimeout(function () {
+                    timer = null;
+                }, wait)
+            }
+        }
+    }
+
+
+    // 时间戳版封装
+
+    // function throttle(func, wait) {
+
+    //   var startTime = Date.now() - 200;
+
+    //   return function () {
+
+    //     if (Date.now() - startTime > wait) {
+    //       startTime = Date.now();
+    //       func()
+    //     }
+    //   }
+    // }
+
+
+
+
+  </script>
+
+</body>
+
+</html>
