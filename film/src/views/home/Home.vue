@@ -15,7 +15,8 @@
 					</div>
 				</div>
 			</template>
-			<template v-slot:default>
+			
+		  	<template v-slot:default>
 				<div class="section banner-section">
 					<swiper class="banner-swiper" :options="bannerSwiperOption" ref="banner">
 						<swiper-slide v-for="m in bannerImgs" :key="m.img">
