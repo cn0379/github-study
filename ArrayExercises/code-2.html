@@ -13,14 +13,25 @@
     var a = ['a', 'a', 'a', 'b', 'b', 'c', 'c', 'c', 'c', 'd', 'hha', 'niha'];
     var s = '';
     var json = {};
-
+    
     a.forEach(ele => {
       if (s != ele) {
         s = ele;
       }
       json[s] ? json[s]++ : (json[s] = 1)
     })
+    var b = 'saldsaklsjaflkajflaslfjashljaaaaaaaaa'
+    var f ='';
+    var array = []
+    
+    for ( var i = 0; i < b.length; i++ ) {
+        if ( f != b[i] ) {
+          f = b[i]
+        }
+        array[f] ? array[f]++ : (array[f] = 1)
+    }
 
+}
   </script>
 
 </body>
