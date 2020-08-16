@@ -49,19 +49,18 @@
     // 立即执行版封装
     function throttle(func, wait) {
 
-        var timer = null;
+      var timer = null;
 
-        return function () {
-            if (timer) {
-            } else {
-                func()
-                timer = setTimeout(function () {
-                    timer = null;
-                }, wait)
-            }
+      return function () {
+        if (timer) {
+        } else {
+          func()
+          timer = setTimeout(function () {
+            timer = null;
+          }, wait)
         }
+      }
     }
-
 
     // 时间戳版封装
 
