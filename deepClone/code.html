@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>deepClone</title>
+</head>
+
+<body>
+  <script>
+    var obj = {
+      name: "张三",
+      age: 18,
+      like:{
+        music:"hy"
+      }
+    }
+    var obj2 = obj
+    console.log(obj === obj2)
+    function deepClone(obj) {
+      if (obj === null) {
+        return
+      }
+      var newObj = obj instanceof Array ? [] : {}
+      for(var k in obj) {
+        newObj[k] = typeof obj[k] === 'object' ? deepClone(obj[k]) : obj[k]
+      }
+      return newObj
+    }
+
+    console.log(deepClone(obj) === obj)
+
+
+  </script>
+</body>
+
+</html>
