@@ -74,4 +74,25 @@
   }
   ```
 
+
+
+
+- 记录元素出现次数
+
+  ```javascript
+  let array = [ 1, 2, 4, [ 1, 2, 3 [ 1, 2, 2 ] ] ]
+  
+  array.reduce((pre,cur) => {
+     if(cur in pre){
+         pre[cur]++
+     }else {
+         pre[cur] = 1
+     }
+      return pre
+  },{})
+  
+  ```
+
+  
+
   

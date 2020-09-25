@@ -11,7 +11,7 @@
 
   <script>
 
-    var arr = ["1", "2", "1", "2", "33","5","5", "1", "4"]
+    var arr = ["1", "2", "1", "2", "33", "5", "5", "1", "4"]
 
     // function unique (arr) {
     //   return new Set (arr)
@@ -26,9 +26,9 @@
         return a - b
       })
 
-      function loop (index) {
+      function loop(index) {
         if (index >= 1) {
-          if(array[index]===array[index - 1]){
+          if (array[index] === array[index - 1]) {
             array.splice(index, 1);
           }
           loop(index - 1);
@@ -38,8 +38,25 @@
       return array
     }
 
-    loop(arr)
-    console.log(unique(arr));
+    // loop(arr)
+    // console.log(unique(arr));
+    var a = []
+
+    function removeDuplicates(array, nums) {
+      var n = nums.length;
+      if (n == 0) return 0;
+      var slow = 0, fast = 1;
+      while (fast < n) {
+        if (nums[fast] != nums[slow]) {
+          slow++;
+          // 维护 nums[0..slow] 无重复
+          nums[slow] = nums[fast];
+        }
+        fast++;
+      }
+      // 长度为索引 + 1
+      return slow + 1;
+    }
 
   </script>
 

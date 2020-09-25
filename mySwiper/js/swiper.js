@@ -10,6 +10,7 @@
         this.w = this.ele.children[0].offsetWidth;
         this.init();
     }
+
     Swiper.prototype = {
         init() {
             this.initWidth();
@@ -110,7 +111,6 @@
             }, 1000 / 60);
         }
     },
-
 
         w.Swiper = Swiper;
 })(window)

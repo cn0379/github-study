@@ -9,29 +9,103 @@
 
 <body>
   <script>
-    var obj = {
-      name: "张三",
-      age: 18,
-      like:{
-        music:"hy"
-      }
+
+    // // // console.log(obj === obj2)
+    // // // var obj2 = obj
+
+    // // // function deepClone(obj) {
+
+    // // //   if (obj === null) return null
+
+    // // //   if (typeof obj !== 'object') return obj;
+    // // //   if (obj.constructor === Date) return new Date(obj);
+    // // //   if (obj.constructor === RegExp) return new RegExp(obj);
+    // // //   if (obj.constructor === Set) return new Set(obj);
+
+    // // //   var newObj = new obj.constructor();  //保持继承链
+    // // //   for (var key in obj) {
+    // // //     if (obj.hasOwnProperty(key)) {  //不遍历其原型链上的属性
+    // // //       var val = obj[key];
+    // // //       newObj[key] = typeof val === 'object' ? arguments.callee(val) : val; // 使用arguments.callee解除与函数名的耦合
+    // // //     }
+    // // //   }
+    // // //   return newObj;
+    // // // }
+    // // // var obj3 = deepClone(obj)
+    // // console.log(obj3)
+    // obj3.age = 111111111
+    // var obj = {
+    //   name: "小明",
+    //   age: 18,
+    //   like: {
+    //     music: "hy",
+    //     music2: {
+    //       child: {
+    //         music: 'hh'
+    //       }
+    //     }
+    //   },
+    //   arr: [1, 2, new Object('小明'), new RegExp(), 3[1, 2, 3]],
+    //   set: new Set([1, 1, 2, 3])
+    // }
+    // var obj4 = { ...obj }
+    // obj4.age = 100
+    // obj4.name = '小王'
+    // obj4.like.music ='yellow'
+    // obj4.like.music2.child.music = 'yellow'
+    // console.log(obj4)
+    // console.log(obj)
+    // console.log(obj4 === obj)
+    // console.log("------------------------------分割下面Object.assign--------------------------------------")
+    // var objCLone = Object.assign({},obj)
+    // objCLone.name = "小红"
+    // obj4.like.music2.child.music = 'yellow'
+    // console.log(obj)
+    // console.log(objCLone)
+
+    // var name = 'window'
+
+    // var obj1 = {
+    //   name: '听风是风',
+    //   fn1: function () {
+    //     console.log(this.name)
+    //   },
+    //   fn2: () => console.log(this.name),
+    //   fn3: function () {
+    //     return function () {
+    //       console.log(this.name)
+    //     }
+    //   },
+    //   fn4: function () {
+    //     return () => console.log(this.name)
+    //   }
+    // }
+    // var obj2 = {
+    //   name: '行星飞行'
+    // };
+
+    // obj1.fn1();//?
+    // obj1.fn1.call(obj2);//?
+
+    // obj1.fn2();//?
+    // obj1.fn2.call(obj2);//?
+
+    // obj1.fn3()();//?
+    // obj1.fn3().call(obj2);//?
+    // obj1.fn3.call(obj2)();//?
+
+    // obj1.fn4()();//?
+    // obj1.fn4().call(obj2);//?
+    // obj1.fn4.call(obj2)();//?
+
+    let array = [1, 2, 3, 4, 4, 4]
+
+    function sum_(num) {
+      return num.reduce((pre, cur) => {
+        return pre + cur
+      })
     }
-    var obj2 = obj
-    console.log(obj === obj2)
-    function deepClone(obj) {
-      if (obj === null) {
-        return
-      }
-      var newObj = obj instanceof Array ? [] : {}
-      for(var k in obj) {
-        newObj[k] = typeof obj[k] === 'object' ? deepClone(obj[k]) : obj[k]
-      }
-      return newObj
-    }
-
-    console.log(deepClone(obj) === obj)
-
-
+    console.log(sum_(array))
   </script>
 </body>
 
